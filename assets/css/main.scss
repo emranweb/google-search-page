@@ -56,10 +56,13 @@ table {
   border-spacing: 0;
 }
 
+
+//Header Area
 header {
   display: flex;
   justify-content: flex-end;
   padding-top: 15px;
+  position: relative;
   .text {
     display: flex;
     align-items: baseline;
@@ -119,17 +122,50 @@ header {
       }
     }
   }
+
+  .tools{
+    position: absolute;
+    display: flex;
+    flex-flow: wrap;
+    justify-content:space-around;
+    display: none;
+    top:53px;
+    right:20px;
+    i{
+      font-size: 36px;
+      flex: auto;
+      width:40px;
+      padding:2vh;
+     &:hover{
+       cursor: pointer;
+     }
+    }
+    flex-direction:row;
+    width:240px;
+    height:260px;
+    background-color: #ededed;
+    &:before{
+      content:"";
+      width:20px;
+      height:20px;
+      background-color: #ededed;
+      transform: rotate(42deg);
+      position: absolute;
+      top: -5px;
+      left:137px;
+    }
+  }
 }
 
+// Main Area
 main {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  min-width: 960px;
   padding-top: 10%;
+
   img {
     margin-bottom: 20px;
   }
@@ -140,6 +176,10 @@ main {
       box-shadow: 2px 1px 3px #d6d6d6;
       width: 500px;
       height: 30px;
+      @media only screen and (max-width: 520px) {
+        width: 300px;
+        height: 35px;
+      }
       &:focus {
         outline: none;
         box-shadow: 2px 4px 3px #d6d6d6;
@@ -157,11 +197,18 @@ main {
       top: 3px;
       color: #808080;
       cursor: pointer;
+      @media only screen and (max-width: 520px) {
+        top: 8px;
+      }
     }
   }
   input[type="text"]::-webkit-input-placeholder {
     padding-left: 10px;
     font-size: 16px;
+    @media only screen and (max-width: 520px) {
+      font-size: 14px;
+      padding-left: 5px;
+    }
   }
 
   .btn-group {
@@ -182,12 +229,18 @@ main {
   }
 }
 
+//Footer Area
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 40px;
   background-color: #f2f2f2;
+  @media only screen and (max-width: 528px) {
+    height: 60px;
+    text-align: center;
+  }
+
   a {
     font-size: 12px;
     opacity: .7;
@@ -201,6 +254,10 @@ footer {
 
   .left-list {
     float: left;
+    @media only screen and (max-width: 528px) {
+      text-align: center;
+      float: none;
+    }
     li {
       display: inline-block;
       margin: 10px 0px 0px 20px;
@@ -209,6 +266,10 @@ footer {
   }
   .right-list {
     float: right;
+    @media only screen and (max-width: 528px) {
+      float: none;
+      text-align: center;
+    }
     li {
       display: inline-block;
       margin: 10px 20px 0px 0px;
