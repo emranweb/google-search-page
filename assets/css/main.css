@@ -95,7 +95,7 @@ header {
         display: inline-block;
         border-radius: 100%;
         overflow: hidden; }
-  header .tools, header .notification {
+  header .tools {
     position: absolute;
     display: flex;
     flex-flow: wrap;
@@ -109,14 +109,18 @@ header {
     width: 240px;
     height: 260px;
     background-color: #ededed; }
-    header .tools i, header .notification i {
+    header .tools i {
       font-size: 36px;
       flex: auto;
       width: 40px;
       padding: 2vh; }
-      header .tools i:hover, header .notification i:hover {
+      header .tools i:hover {
         cursor: pointer; }
-    header .tools:before, header .notification:before {
+    header .tools i:nth-child(even) {
+      color: #4285f4; }
+    header .tools i:nth-child(odd) {
+      color: #ea4335; }
+    header .tools:before {
       content: "";
       width: 20px;
       height: 20px;
@@ -126,14 +130,28 @@ header {
       top: -5px;
       left: 137px; }
   header .notification {
-    display: none; }
+    position: absolute;
+    background-color: #ededed;
+    top: 53px;
+    right: 20px;
+    display: none;
+    z-index: 1;
+    width: 260px;
+    height: 240px;
+    box-shadow: -1px 2px 2px #bfbfbf; }
     header .notification:before {
-      left: 177px; }
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-color: #ededed;
+      transform: rotate(42deg);
+      position: absolute;
+      top: -5px;
+      right: 43px; }
     header .notification i {
       float: left;
       font-size: 31px;
       color: #717171;
-      flex: auto;
       width: 20px;
       padding: 12px 7px; }
     header .notification h2 {
@@ -145,23 +163,20 @@ header {
       margin-top: 12px;
       margin-right: 50px; }
     header .notification p {
-      margin-top: 40%;
       color: #a9a9a9;
       margin-left: 50%;
-      transform: translateX(-50%); }
+      transform: translateX(-50%);
+      margin-top: 28%; }
     header .notification span {
-      display: block;
       position: absolute;
       bottom: 0px;
       height: 20px;
       background-color: gainsboro;
       width: 100%; }
       header .notification span i {
-        width: 100%;
-        text-align: center;
         color: #828282;
-        padding: 0vh;
-        margin-bottom: 2px; }
+        margin: -5px 0px 0px 120px;
+        padding: 0px; }
   header .profile {
     width: 300px;
     height: 190px;
@@ -244,7 +259,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 10%; }
+  padding-top: 13%; }
   main img {
     margin-bottom: 20px; }
   main .input-group {
@@ -262,7 +277,6 @@ main {
         outline: none;
         box-shadow: 2px 4px 3px #d6d6d6; }
     main .input-group i {
-      position: absolute;
       position: absolute;
       right: 10px;
       top: 9px;
@@ -329,5 +343,105 @@ footer {
       display: inline-block;
       margin: 10px 20px 0px 0px;
       cursor: pointer; }
+
+.mic {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  color: #4d90fe;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  display: none; }
+  .mic h3 {
+    color: #bdbec1;
+    margin-right: 250px;
+    font-size: 35px; }
+    @media only screen and (max-width: 650px) {
+      .mic h3 {
+        margin-right: 100px; } }
+    @media only screen and (max-width: 450px) {
+      .mic h3 {
+        margin-right: 50px;
+        font-size: 30px; } }
+  .mic .speak {
+    position: relative;
+    color: #000; }
+    .mic .speak i {
+      color: #ea4335;
+      font-size: 80px; }
+      @media only screen and (max-width: 450px) {
+        .mic .speak i {
+          font-size: 35px; } }
+    .mic .speak:before {
+      content: "";
+      width: 80px;
+      height: 80px;
+      background-color: #6b6b6b;
+      border-radius: 100%;
+      display: block;
+      position: absolute;
+      animation: be 3s linear infinite;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px; }
+      @media only screen and (max-width: 450px) {
+        .mic .speak:before {
+          width: 35px;
+          height: 35px; } }
+    .mic .speak:after {
+      content: "";
+      width: 80px;
+      height: 80px;
+      background-color: #49496b;
+      border-radius: 100%;
+      display: block;
+      position: absolute;
+      animation: af 6s linear infinite;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px; }
+      @media only screen and (max-width: 450px) {
+        .mic .speak:after {
+          width: 35px;
+          height: 35px; } }
+  .mic .na {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer; }
+    .mic .na i {
+      font-size: 30px;
+      color: #717171; }
+
+@keyframes be {
+  0% {
+    opacity: 0;
+    transform: scale(1, 1); }
+  80% {
+    opacity: 0.4;
+    transform: scale(1.5, 1.5); }
+  100% {
+    opacity: 0;
+    transform: scale(2, 2); } }
+@keyframes af {
+  0% {
+    opacity: 0;
+    transform: scale(1, 1); }
+  80% {
+    opacity: .4;
+    transform: scale(1.7, 1.7); }
+  100% {
+    opacity: 0;
+    transform: scale(2.5, 2.5); } }
 
 /*# sourceMappingURL=main.css.map */

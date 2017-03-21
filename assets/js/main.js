@@ -16,7 +16,7 @@ $(function () {
     });
 
     $('.icon i:nth-child(2)').click(function () {
-        $('.notification').fadeIn(500).css('display', 'flex');
+        $('.notification').fadeIn(500);
     });
     $('.icon i:nth-child(2)').siblings().click(function () {
         $('.notification').fadeOut(100);
@@ -27,6 +27,14 @@ $(function () {
     })
     $('.icon span').siblings().click(function () {
         $('.profile').fadeOut(100);
+    })
+
+    $('.mc').click(function () {
+        $('.mic').fadeIn(200).css('display', 'flex');
+    })
+
+    $('.na').click(function () {
+        $('.mic').fadeOut(100);
     })
 
 })

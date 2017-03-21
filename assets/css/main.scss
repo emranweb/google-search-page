@@ -141,6 +141,12 @@ header {
         cursor: pointer;
       }
     }
+    i:nth-child(even) {
+      color: #4285f4;
+    }
+    i:nth-child(odd) {
+      color: #ea4335;
+    }
     flex-direction: row;
     width: 240px;
     height: 260px;
@@ -157,16 +163,30 @@ header {
     }
   }
   .notification {
-    @extend .tools;
+    position: absolute;
+    background-color: #ededed;
+    top: 53px;
+    right: 20px;
     display: none;
+    z-index: 1;
+    width: 260px;
+    height: 240px;
+    box-shadow: -1px 2px 2px #bfbfbf;
+
     &:before {
-      left: 177px;
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-color: #ededed;
+      transform: rotate(42deg);
+      position: absolute;
+      top: -5px;
+      right: 43px;
     }
     i {
       float: left;
       font-size: 31px;
       color: #717171;
-      flex: auto;
       width: 20px;
       padding: 12px 7px;
     }
@@ -180,24 +200,21 @@ header {
       margin-right: 50px;
     }
     p {
-      margin-top: 40%;
       color: #a9a9a9;
       margin-left: 50%;
       transform: translateX(-50%);
+      margin-top: 28%;
     }
     span {
-      display: block;
       position: absolute;
       bottom: 0px;
       height: 20px;
       background-color: gainsboro;
       width: 100%;
       i {
-        width: 100%;
-        text-align: center;
         color: #828282;
-        padding: 0vh;
-        margin-bottom: 2px;
+        margin: -5px 0px 0px 120px;
+        padding: 0px;
       }
     }
   }
@@ -302,7 +319,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 10%;
+  padding-top: 13%;
 
   img {
     margin-bottom: 20px;
@@ -324,7 +341,6 @@ main {
       }
     }
     i {
-      position: absolute;
       position: absolute;
       right: 10px;
       top: 9px;
@@ -360,6 +376,10 @@ main {
       }
     }
   }
+}
+
+.mic {
+
 }
 
 //Footer Area
@@ -412,7 +432,148 @@ footer {
   }
 }
 
+.mic {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  color: #4d90fe;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  display: none;
+  h3 {
+    color: #bdbec1;
+    margin-right: 250px;
+    font-size: 35px;
+    @media only screen and(max-width:650px){
+      margin-right: 100px;
+    }
+    @media only screen and(max-width:450px){
+      margin-right: 50px;
+      font-size:30px;
+    }
+  }
+  .speak {
+    position: relative;
+    color: #000;
+    i {
+      color: #ea4335;
+      font-size: 80px;
+      @media only screen and(max-width:450px){
+        font-size: 35px;
+      }
+    }
+    &:before {
+      content: "";
+      width: 80px;
+      height: 80px;
+      background-color: #6b6b6b;
+      border-radius: 100%;
+      display: block;
+      position: absolute;
+      animation: be 3s linear infinite;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      @media only screen and(max-width:450px){
+        width: 35px;
+        height: 35px;
+      }
+    }
+    &:after {
+      content: "";
+      width: 80px;
+      height: 80px;
+      background-color: #49496b;
+      border-radius: 100%;
+      display: block;
+      position: absolute;
+      animation: af 6s linear infinite;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      @media only screen and(max-width:450px){
+        width: 35px;
+        height: 35px;
+      }
 
+    }
+  }
 
+  .na {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    i {
+      font-size: 30px;
+      color: #717171;
+    }
+  }
+
+}
+
+@keyframes be {
+  0% {
+    opacity: 0;
+    transform: scale(1, 1);
+  }
+  //20%{
+  //  opacity: .1;
+  //  transform: scale(.2,.2);
+  //}
+  //40%{
+  //  opacity: .2;
+  //  transform: scale(.7,.7);
+  //}
+  //60%{
+  //  opacity:.3;
+  //  transform: scale(1.1, 1.1);
+  //}
+  80% {
+    opacity: 0.4;
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2, 2);
+  }
+}
+
+@keyframes af {
+  0% {
+    opacity: 0;
+    transform: scale(1, 1);
+  }
+  //20%{
+  //  opacity: 0.1;
+  //  transform: scale(.2,.2);
+  //}
+  //40%{
+  //  opacity: .3;
+  //  transform: scale(.5,.5);
+  //}
+  //60%{
+  //  opacity:.4;
+  //  transform: scale(.9, .9);
+  //}
+  80% {
+    opacity: .4;
+    transform: scale(1.7, 1.7);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.5, 2.5);
+  }
+}
 
 
